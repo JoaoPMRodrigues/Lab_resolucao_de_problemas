@@ -1,30 +1,22 @@
-n=int(input())
-tabela=":;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\]^_´abcdefghijklmnopqrstuvwxyz{|}-"
-for i in range(n):
-    palavra = str(input())
-    print(palavra)
-    for letra in palavra:
-        if letra.isalpha():
-            posicao = tabela.index(letra)
-            codigo=""
-            if (posicao+3)>(len(tabela)-1):
-                codigo+= tabela[posicao+3-26]
-            else:
-                codigo += tabela[posicao+3]
+n = int(input())
+for _ in range(n):
+    texto = input()
+    passo1 = ""
+    for c in texto:
+        if c.isalpha():
+            passo1 += chr(ord(c) + 3)
         else:
-            codigo += letra
-    inverso  = ""
-    for i in range(len(codigo)-1,-1,-1):
-        inverso += codigo[i]
-    inicio = len(inverso)//2
-    for i in range(inicio,len(inverso)):
-        if inverso[i].isalpha():
-            posicao = tabela.index(letra)
-            codigo=""
-            if (posicao+3)>(len(tabela)-1):
-                codigo+= tabela[posicao+3-26]
-            else:
-                codigo += tabela[posicao+3]
+            passo1 += c
+
+    passo2 = passo1[::-1]
+
+    metade = len(passo2) // 2
+    resultado = ""
+
+    for i in range(len(passo2)):
+        if i >= metade:
+            resultado += chr(ord(passo2[i]) - 1)
         else:
-            codigo += letra
-    print(codigo)
+            resultado += passo2[i]
+
+    print(resultado)
