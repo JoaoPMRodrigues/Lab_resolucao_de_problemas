@@ -13,4 +13,4 @@ else:
     if a == b == c:
         print("TRIANGULO EQUILATERO")
     elif (a == b and a != c) or (a == c and a != b) or (b == c and c != a):
-        print("TRIANGULO ISOCELES")
+        print("TRIANGULO ISOSCELES")
