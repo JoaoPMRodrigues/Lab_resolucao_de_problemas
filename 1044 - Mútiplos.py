@@ -1,9 +1,8 @@
 a, b = map(int, input().split())
 c = a/b
-c1 = a//b
 d = b/a
-d1 = b//a
-if c == c1 or d == d1:
+# Verifica se a é múltiplo de b ou se b é multiplo de a
+if c == int(c) or d == int(d):
     print("Sao Multiplos")
 else:
     print("Nao sao Multiplos")
