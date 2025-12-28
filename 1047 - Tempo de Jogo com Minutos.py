@@ -1,3 +1,19 @@
-hi, mi, hf, mf = map(int, input().split())
-if hi == hf and mi==mf:
-    print("O JOGO DUROU 24 HORA(S) E 0 MINUTO(S)")
+hora_inicial, minuto_inicial, hora_final, minuto_final = map(
+    int, input().split())
+if hora_inicial == hora_final:
+    horas = 24
+elif hora_inicial < hora_final:
+    horas = hora_final - hora_inicial
+else:
+    horas = hora_inicial - hora_final + 24
+if minuto_inicial == minuto_final:
+    minutos = 0
+    horas += 1
+elif minuto_inicial < minuto_final:
+    minutos = minuto_final - minuto_inicial
+else:
+    minutos = minuto_inicial - minuto_final + 60
+    horas += 1
+
+
+print(f"O JOGO DUROU {horas} HORA(S) E {minutos} MINUTO(S)")
