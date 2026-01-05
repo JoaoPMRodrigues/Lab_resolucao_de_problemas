@@ -11,9 +11,9 @@ while True:
     for _ in range(q):
         lista_procura.append(int(input()))
 
-    for i in range(len(q)):
-        for j in range(len(n)):
-            if lista_procura[i] == lista_dados[q]:
+    for i in range(q):
+        for j in range(n):
+            if lista_procura[i] == lista_dados[j]:
                 boole[i] = j+1
                 break
     print(f"CASE# {contador}:")
@@ -23,3 +23,7 @@ while True:
         else:
             print(f"{lista_procura[i]} found at {boole[i]}")
     contador += 1
+
+"""git add .
+git commit -m "Beecrowd"
+git push"""
