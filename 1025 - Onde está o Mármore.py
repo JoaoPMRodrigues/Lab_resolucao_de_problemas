@@ -11,6 +11,7 @@ while True:
     for _ in range(q):
         lista_procura.append(int(input()))
 
+    lista_dados.sort()
     for i in range(q):
         for j in range(n):
             if lista_procura[i] == lista_dados[j]:
