@@ -1,8 +1,10 @@
 tamanho = 10
-vetor = [0]*tamanho
+X = [1]*tamanho
 
 for i in range(tamanho):
-    vetor[i] = int(input())
+    valor = int(input())
+    if valor > 0:
+        X[i] = valor
 
 for i in range(tamanho):
-    print(vetor[i])
+    print(f"X[{i}] = {X[i]}")
