@@ -1,3 +1,5 @@
+from functools import lru_cache
+@lru_cache(None)
 def conta_chamadas(posicao):
     if posicao == 0:
         return 0
@@ -6,7 +8,7 @@ def conta_chamadas(posicao):
     else:
         return conta_chamadas(posicao-1) + conta_chamadas(posicao-2) + 2
 
-
+@lru_cache(None)
 def fibonacci(posicao):
     if posicao == 0:
         return 0
@@ -19,4 +21,4 @@ def fibonacci(posicao):
 n = int(input())
 for _ in range(n):
     pos = int(input())
-    print(f"fib({pos}) = {fibonacci(pos)} calls = {conta_chamadas(pos)}")
+    print(f"fib({pos}) = {conta_chamadas(pos)} calls = {fibonacci(pos)}")
