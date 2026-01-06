@@ -18,4 +18,4 @@ n = int(input())
 for _ in range(n):
     pos = int(input())
     print(f"fib({pos}) = {fibonacci(pos)} calls = {num_chamadas}")
-    num_chamadas = 1
+    num_chamadas = -1
