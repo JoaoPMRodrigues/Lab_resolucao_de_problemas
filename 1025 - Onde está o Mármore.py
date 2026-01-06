@@ -6,9 +6,10 @@ def busca_binaria(lista, procura):
         meio = (inicio + fim)//2
         if lista[meio] == procura:
             posicao = meio + 1
-            if lista[posicao] == lista[posicao-1]:
-                posicao -= 1
-            return posicao
+            if posicao == meio:
+                return meio
+            else:
+                return posicao
         elif lista[meio] < procura:
             inicio = meio + 1
         else:
