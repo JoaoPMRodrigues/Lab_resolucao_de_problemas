@@ -12,12 +12,13 @@ for _ in range(n):
         linha = str(input())
         if linha == ".":
             break
-        auxiliar.append(linha)
+        auxiliar.append(linha.split())
     descricao.append(auxiliar[:])
 
 for i in range(len(descricao)):
     total = 0
-    for palavra in descricao[i]:
-        if palavra in dicionario:
-            total += dicionario[palavra]
-    print(total)
+    for frase in descricao[i]:
+        for palavra in frase:
+            if palavra in dicionario:
+                total += dicionario[palavra]
+    print(int(total))
