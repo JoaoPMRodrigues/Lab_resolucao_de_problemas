@@ -1,11 +1,3 @@
-def verifica_anterior(lista, pos):
-
-    if lista[pos] != lista[pos-1]:
-        return lista[pos]
-    else:
-        verifica_anterior(lista, pos[-1])
-
-
 def busca_binaria(lista, procura):
     inicio = 0
     fim = len(lista)-1
@@ -14,7 +6,8 @@ def busca_binaria(lista, procura):
         meio = (inicio + fim)//2
         if lista[meio] == procura:
             posicao = meio + 1
-            posicao = verifica_anterior(lista, posicao)
+            if lista[posicao] == lista[posicao-1]:
+                posicao -= 1
             return posicao
         elif lista[meio] < procura:
             inicio = meio + 1
