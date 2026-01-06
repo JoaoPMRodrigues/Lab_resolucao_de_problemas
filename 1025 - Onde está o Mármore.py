@@ -1,3 +1,11 @@
+def verifica_anterior(lista, pos):
+
+    if lista[pos] != lista[pos-1]:
+        return lista[pos]
+    else:
+        verifica_anterior(lista, pos[-1])
+
+
 def busca_binaria(lista, procura):
     inicio = 0
     fim = len(lista)-1
@@ -6,6 +14,7 @@ def busca_binaria(lista, procura):
         meio = (inicio + fim)//2
         if lista[meio] == procura:
             posicao = meio + 1
+            posicao = verifica_anterior(lista, posicao)
             return posicao
         elif lista[meio] < procura:
             inicio = meio + 1
@@ -14,6 +23,7 @@ def busca_binaria(lista, procura):
     return None
 
 
+contador = 1
 while True:
     n, q = map(int, input().split())
     if n == q == 0:
@@ -21,7 +31,7 @@ while True:
     lista_dados = list()
     lista_procura = list()
     boole = list()
-    contador = 1
+
     for _ in range(n):
         lista_dados.append(int(input()))
     for _ in range(q):
