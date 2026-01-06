@@ -7,18 +7,22 @@ for _ in range(m):
     dicionario[skill] = valor
 
 for _ in range(n):
-    auxiliar = list()
+    total = 0
     while True:
         linha = str(input())
         if linha == ".":
             break
-        auxiliar.append(linha.split())
-    descricao.append(auxiliar[:])
+        linha = linha.split()
+        for i in range(len(linha)):
+            if linha[i] in dicionario:
+                total += dicionario[linha[i]]
+    print(int(total))
 
-for i in range(len(descricao)):
+
+"""for i in range(len(descricao)):
     total = 0
     for frase in descricao[i]:
         for palavra in frase:
             if palavra in dicionario:
                 total += dicionario[palavra]
-    print(int(total))
+    print(int(total))"""
