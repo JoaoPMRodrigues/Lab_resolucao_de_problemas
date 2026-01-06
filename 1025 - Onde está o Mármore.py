@@ -1,26 +1,27 @@
 def busca_binaria(lista, procura):
     inicio = 0
     fim = len(lista)-1
-    posicao = -1
+    posicao = None
+
     while inicio <= fim:
         meio = (inicio + fim)//2
         if lista[meio] == procura:
-            posicao = meio + 1
-            if lista[posicao] == lista[posicao-1]:
-                posicao -= 1
-            return posicao
+            posicao = meio
+            fim = meio - 1
         elif lista[meio] < procura:
             inicio = meio + 1
         else:
             fim = meio - 1
-    return None
+    return posicao
 
 
 contador = 1
+
 while True:
     n, q = map(int, input().split())
     if n == q == 0:
         break
+
     lista_dados = list()
     lista_procura = list()
     boole = list()
@@ -31,7 +32,6 @@ while True:
         lista_procura.append(int(input()))
 
     lista_dados.sort()
-
     for i in range(len(lista_procura)):
         boole.append(busca_binaria(lista_dados, lista_procura[i]))
 
@@ -40,5 +40,5 @@ while True:
         if boole[i] == None:
             print(f"{lista_procura[i]} not found")
         else:
-            print(f"{lista_procura[i]} found at {boole[i]}")
+            print(f"{lista_procura[i]} found at {boole[i]+1}")
     contador += 1
