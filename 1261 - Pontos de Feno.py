@@ -7,19 +7,17 @@ for _ in range(m):
     dicionario[skill] = valor
 
 for _ in range(n):
-    frase = ""
+    auxiliar = list()
     while True:
         linha = str(input())
         if linha == ".":
             break
-        frase += linha
-    descricao.append(frase.split())
+        auxiliar.append(linha)
+    descricao.append(auxiliar[:])
 
 for i in range(len(descricao)):
     total = 0
-    repetidos = set()
     for palavra in descricao[i]:
-        if palavra in dicionario and palavra not in repetidos:
+        if palavra in dicionario:
             total += dicionario[palavra]
-            repetidos.add(palavra)
-    print(int(total))
+    print(total)
