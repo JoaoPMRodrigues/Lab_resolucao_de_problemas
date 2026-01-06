@@ -14,7 +14,9 @@ def conta_chamadas(posicao):
 
 
 def fibonacci(posicao):
-    if posicao <= 1:
+    if posicao in memoria_chamada:
+        return memoria_chamada[posicao]
+    elif posicao <= 1:
         resultado = posicao
     else:
         resultado = fibonacci(posicao-1) + fibonacci(posicao-2)
