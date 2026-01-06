@@ -17,7 +17,9 @@ for _ in range(n):
 
 for i in range(len(descricao)):
     total = 0
+    repetidos = set()
     for palavra in descricao[i]:
-        if palavra in dicionario:
+        if palavra in dicionario and palavra not in repetidos:
             total += dicionario[palavra]
-    print(total)
+            repetidos.add(palavra)
+    print(int(total))
