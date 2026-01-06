@@ -1,6 +1,7 @@
 dicionario = dict()
 descricao = list()
 m, n = map(int, input().split())
+
 for _ in range(m):
     skill, valor = map(str, input().split())
     valor = float(valor)
@@ -17,12 +18,3 @@ for _ in range(n):
             if linha[i] in dicionario:
                 total += dicionario[linha[i]]
     print(int(total))
-
-
-"""for i in range(len(descricao)):
-    total = 0
-    for frase in descricao[i]:
-        for palavra in frase:
-            if palavra in dicionario:
-                total += dicionario[palavra]
-    print(int(total))"""
