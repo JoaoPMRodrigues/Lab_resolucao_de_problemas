@@ -1,21 +1,25 @@
-from functools import lru_cache
-@lru_cache(None)
-def conta_chamadas(posicao):
-    if posicao == 0:
-        return 0
-    elif posicao == 1:
-        return 0
-    else:
-        return conta_chamadas(posicao-1) + conta_chamadas(posicao-2) + 2
+memoria_posicao = {}
+memoria_chamada = {}
 
-@lru_cache(None)
-def fibonacci(posicao):
-    if posicao == 0:
-        return 0
-    elif posicao == 1:
-        return 1
+
+def conta_chamadas(posicao):
+    if posicao in memoria_posicao:
+        return memoria_posicao[posicao]
+    elif posicao <= 1:
+        resultado = 0
     else:
-        return fibonacci(posicao-1) + fibonacci(posicao-2)
+        resultado = conta_chamadas(posicao-1) + conta_chamadas(posicao-2) + 2
+    memoria_posicao[posicao] = resultado
+    return resultado
+
+
+def fibonacci(posicao):
+    if posicao <= 1:
+        resultado = posicao
+    else:
+        resultado = fibonacci(posicao-1) + fibonacci(posicao-2)
+    memoria_chamada[posicao] = resultado
+    return resultado
 
 
 n = int(input())
