@@ -10,4 +10,4 @@ while True:
             final -= 1
         else:
             final += 1
-    print(direcao[final])
+    print(direcao[final % 4])
