@@ -13,3 +13,11 @@ for _ in range(n):
         if linha == ".":
             break
         frase += linha
+    descricao.append(frase.split())
+
+for i in range(len(descricao)):
+    total = 0
+    for palavra in descricao[i]:
+        if palavra in dicionario:
+            total += dicionario[palavra]
+    print(total)
